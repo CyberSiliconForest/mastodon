@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'main'
+      - 'sif-edge'
     tags:
       - '*'
   pull_request:
@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   build-image:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - uses: hadolint/hadolint-action@v3.0.0
@@ -29,18 +29,17 @@ jobs:
       - uses: docker/metadata-action@v4
         id: meta
         with:
-          images: tootsuite/mastodon
+          images: siliconforest/mastodon
           flavor: |
             latest=auto
           tags: |
-            type=edge,branch=main
-            type=pep440,pattern={{raw}}
-            type=pep440,pattern=v{{major}}.{{minor}}
+            type=edge,branch=sif-edge
+            type=semver,pattern={{raw}}
             type=ref,event=pr
       - uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           builder: ${{ steps.buildx.outputs.name }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
