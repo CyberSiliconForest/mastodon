@@ -31,7 +31,6 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
     networks:
-      - external_network
       - internal_network
     user: vscode
 
@@ -85,6 +84,4 @@ volumes:
   es-data:
 
 networks:
-  external_network:
   internal_network:
-    internal: true
