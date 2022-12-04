@@ -16,6 +16,7 @@ import Column from 'mastodon/components/column';
 import { Icon }  from 'mastodon/components/icon';
 import { logOut } from 'mastodon/utils/log_out';
 
+import elephantUIIron from '../../../images/elephant_ui_iron.svg';
 import elephantUIPlane from '../../../images/elephant_ui_plane.svg';
 import { changeComposing, mountCompose, unmountCompose } from '../../actions/compose';
 import { mascot } from '../../initial_state';
@@ -127,7 +128,7 @@ class Compose extends PureComponent {
               <ComposeFormContainer autoFocus={!isMobile(window.innerWidth)} />
 
               <div className='drawer__inner__mastodon'>
-                <img alt='' draggable='false' src={mascot || elephantUIPlane} />
+                <img alt='' draggable='false' src={mascot || elephantUIIron} />
               </div>
             </div>
 
