@@ -7,7 +7,7 @@ import IconButton from 'mastodon/components/icon_button';
 import Icon from 'mastodon/components/icon';
 import { defineMessages, injectIntl, FormattedMessage, FormattedDate } from 'react-intl';
 import { autoPlayGif, reduceMotion, disableSwiping } from 'mastodon/initial_state';
-import elephantUIPlane from 'mastodon/../images/elephant_ui_plane.svg';
+import elephantUIIron from 'mastodon/../images/elephant_ui_iron.svg';
 import { mascot } from 'mastodon/initial_state';
 import unicodeMapping from 'mastodon/features/emoji/emoji_unicode_mapping_light';
 import classNames from 'classnames';
@@ -417,7 +417,7 @@ class Announcements extends ImmutablePureComponent {
 
     return (
       <div className='announcements'>
-        <img className='announcements__mastodon' alt='' draggable='false' src={mascot || elephantUIPlane} />
+        <img className='announcements__mastodon' alt='' draggable='false' src={mascot || elephantUIIron} />
 
         <div className='announcements__container'>
           <ReactSwipeableViews animateHeight={!reduceMotion} adjustHeight={reduceMotion} index={index} onChangeIndex={this.handleChangeIndex}>
