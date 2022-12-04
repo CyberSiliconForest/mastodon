@@ -12,6 +12,7 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import { animated, useTransition } from '@react-spring/web';
 import ReactSwipeableViews from 'react-swipeable-views';
 
+import elephantUIIron from '@/images/elephant_ui_iron.svg';
 import elephantUIPlane from '@/images/elephant_ui_plane.svg';
 import AddIcon from '@/material-icons/400-24px/add.svg?react';
 import ChevronLeftIcon from '@/material-icons/400-24px/chevron_left.svg?react';
@@ -439,7 +440,7 @@ class Announcements extends ImmutablePureComponent {
 
     return (
       <div className='announcements'>
-        <img className='announcements__mastodon' alt='' draggable='false' src={mascot || elephantUIPlane} />
+        <img className='announcements__mastodon' alt='' draggable='false' src={mascot || elephantUIIron} />
 
         <div className='announcements__container'>
           <ReactSwipeableViews animateHeight animateTransitions={!reduceMotion} index={index} onChangeIndex={this.handleChangeIndex}>
