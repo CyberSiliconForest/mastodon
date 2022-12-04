@@ -12,7 +12,7 @@ import Motion from '../ui/util/optional_motion';
 import spring from 'react-motion/lib/spring';
 import SearchResultsContainer from './containers/search_results_container';
 import { openModal } from 'mastodon/actions/modal';
-import elephantUIPlane from '../../../images/elephant_ui_plane.svg';
+import elephantUIIron from '../../../images/elephant_ui_iron.svg';
 import { mascot } from '../../initial_state';
 import Icon from 'mastodon/components/icon';
 import { logOut } from 'mastodon/utils/log_out';
@@ -119,7 +119,7 @@ class Compose extends React.PureComponent {
               <ComposeFormContainer autoFocus={!isMobile(window.innerWidth)} />
 
               <div className='drawer__inner__mastodon'>
-                <img alt='' draggable='false' src={mascot || elephantUIPlane} />
+                <img alt='' draggable='false' src={mascot || elephantUIIron} />
               </div>
             </div>
 
