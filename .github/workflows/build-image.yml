@@ -41,5 +41,10 @@ jobs:
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            GITHUB_REPOSITORY=${{ github.repository }}
+            # TODO: Find nice way to replace this with variable
+            SOURCE_BASE_URL=https://github.com/CyberSiliconForest/mastodon
+            SOURCE_TAG=${{ github.ref_name }}
           cache-from: type=registry,ref=siliconforest/mastodon:edge
           cache-to: type=inline
