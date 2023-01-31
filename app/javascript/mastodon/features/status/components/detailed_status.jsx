@@ -151,6 +151,7 @@ class DetailedStatus extends ImmutablePureComponent {
     let reblogIcon = 'retweet';
     let favouriteLink = '';
     let edited = '';
+    let languageCode = '';
 
     if (this.props.measureHeight) {
       outerStyle.height = `${this.state.height}px`;
@@ -295,6 +296,24 @@ class DetailedStatus extends ImmutablePureComponent {
     const {statusContentProps, hashtagBar} = getHashtagBarForStatus(status);
     const expanded = !status.get('hidden') || status.get('spoiler_text').length === 0;
 
+    if (language !== undefined && language !== null && Intl) {
+      try {
+        languageCode = (
+          <React.Fragment>
+            <React.Fragment> · </React.Fragment>
+            <React.Fragment>{new Intl.DisplayNames([intl.locale], { type: 'language' }).of(language)}</React.Fragment>
+          </React.Fragment>
+        );
+      } catch {
+        languageCode = (
+          <React.Fragment>
+            <React.Fragment> · </React.Fragment>
+            <React.Fragment>{language}</React.Fragment>
+          </React.Fragment>
+        );
+      }
+    }
+
     return (
       <div style={outerStyle}>
         <div ref={this.setRef} className={classNames('detailed-status', { compact })}>
@@ -324,7 +343,7 @@ class DetailedStatus extends ImmutablePureComponent {
           <div className='detailed-status__meta'>
             <a className='detailed-status__datetime' href={`/@${status.getIn(['account', 'acct'])}/${status.get('id')}`} target='_blank' rel='noopener noreferrer'>
               <FormattedDate value={new Date(status.get('created_at'))} hour12={false} year='numeric' month='short' day='2-digit' hour='2-digit' minute='2-digit' />
-            </a>{edited}{visibilityLink}{applicationLink}{reblogLink} · {favouriteLink}
+            </a>{edited}{languageCode}{visibilityLink}{applicationLink}{reblogLink} · {favouriteLink}
           </div>
         </div>
       </div>
