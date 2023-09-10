@@ -28,3 +28,6 @@ storybook-static
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# SiF customization
+Jenkinsfile
