@@ -20,3 +20,6 @@ postgres14
 redis
 elasticsearch
 chart
+
+# SiF customization
+Jenkinsfile
