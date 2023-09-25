@@ -443,10 +443,11 @@ class Status extends ImmutablePureComponent {
       );
     }
 
+    const language = status.getIn(['translation', 'language']) || status.get('language');
     if (pictureInPicture.get('inUse')) {
       media = <PictureInPicturePlaceholder aspectRatio={this.getAttachmentAspectRatio()} />;
     } else if (status.get('media_attachments').size > 0) {
-      const language = status.getIn(['translation', 'language']) || status.get('language');
+      //const language = status.getIn(['translation', 'language']) || status.get('language');
 
       if (status.getIn(['media_attachments', 0, 'type']) === 'audio') {
         const attachment = status.getIn(['media_attachments', 0]);
