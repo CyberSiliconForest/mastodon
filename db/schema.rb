@@ -670,7 +670,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_071624) do
     t.integer "for_not_following", default: 0, null: false
     t.integer "for_not_followers", default: 0, null: false
     t.integer "for_new_accounts", default: 0, null: false
-    t.integer "for_private_mentions", default: 1, null: false
+    t.integer "for_private_mentions", default: 0, null: false
     t.integer "for_limited_accounts", default: 1, null: false
     t.index ["account_id"], name: "index_notification_policies_on_account_id", unique: true
   end
