@@ -32,7 +32,7 @@ RSpec.describe 'Policies' do
           for_not_following: 'accept',
           for_not_followers: 'accept',
           for_new_accounts: 'accept',
-          for_private_mentions: 'filter',
+          for_private_mentions: 'accept',
           for_limited_accounts: 'filter',
           for_bots: 'accept',
           summary: a_hash_including(
@@ -65,7 +65,7 @@ RSpec.describe 'Policies' do
         for_not_following: 'filter',
         for_not_followers: 'accept',
         for_new_accounts: 'accept',
-        for_private_mentions: 'filter',
+        for_private_mentions: 'accept',
         for_limited_accounts: 'drop',
         for_bots: 'accept',
         summary: a_hash_including(
